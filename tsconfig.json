@@ -4,9 +4,6 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@starter/*": [
-        "src/starter-files/*"
-      ],
       "@layouts/*": [
         "src/layouts/*"
       ],
