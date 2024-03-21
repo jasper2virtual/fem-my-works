@@ -17,5 +17,8 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.2",
     "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "sass": "^1.72.0"
   }
 }

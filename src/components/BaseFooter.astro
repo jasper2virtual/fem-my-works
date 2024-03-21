@@ -1,0 +1,15 @@
+---
+interface Props{
+    challengeUrl:string,
+    repoUrl:string
+}
+const {challengeUrl,repoUrl}=Astro.props
+---
+<style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+</style>
+<div class="attribution tw-my-1">
+    Challenge by <a href={challengeUrl} target="_blank">Frontend Mentor</a>.
+    Coded by <a href={repoUrl}>Jasper Lai</a>.
+</div>
