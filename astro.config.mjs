@@ -5,6 +5,6 @@ import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
-  outDir:'./docs',
+  // outDir:'./docs',
   integrations: [tailwind(), vue()]
 });
