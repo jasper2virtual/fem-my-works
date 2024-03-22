@@ -5,8 +5,8 @@ export default {
     theme: {
         extend: {},
         screens:{
-            mobile:{'max':'375px'},
-            desktop:{'max':'1440px'}
+            mobile:'375px',
+            desktop:'1440px'
         },
         colors:{
             white:'hsl(0, 0%, 100%)',
