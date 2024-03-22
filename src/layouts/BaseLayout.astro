@@ -7,9 +7,21 @@ interface Props {
     mainClass?: string,
     layoutClass?: string,
     headerClass?: string,
-    footerClass?: string
+    footerClass?: string,
+    showH1?: boolean,
+    h1Class?: string
 }
-const {title, challengeUrl, repoUrl, mainClass, layoutClass, headerClass, footerClass} = Astro.props
+const {
+    title,
+    challengeUrl,
+    repoUrl,
+    mainClass,
+    layoutClass,
+    headerClass,
+    footerClass,
+    showH1 = true,
+    h1Class
+} = Astro.props
 ---
 <html lang="en">
 <head>
@@ -19,15 +31,16 @@ const {title, challengeUrl, repoUrl, mainClass, layoutClass, headerClass, footer
     <title>Frontend Mentor | {title}</title>
 </head>
 <body>
-    <div class={'tw-flex tw-flex-col tw-min-h-screen tw-mx-auto tw-px-6 ' + layoutClass}>
-        <header class={headerClass}>
-        </header>
-        <main class={'tw-grow ' + mainClass}>
-            <slot/>
-        </main>
-        <footer class={footerClass}>
-            <BaseFooter challengeUrl={challengeUrl} repoUrl={repoUrl}/>
-        </footer>
-    </div>
+<div class={'tw-flex tw-flex-col tw-min-h-screen tw-mx-auto tw-px-6 ' + layoutClass}>
+    <header class={headerClass}>
+    </header>
+    <main class={'tw-grow ' + mainClass}>
+        <h1 class:list={[h1Class,{'tw-hidden':!showH1}]}>{title}</h1>
+        <slot/>
+    </main>
+    <footer class={footerClass}>
+        <BaseFooter challengeUrl={challengeUrl} repoUrl={repoUrl}/>
+    </footer>
+</div>
 </body>
 </html>
