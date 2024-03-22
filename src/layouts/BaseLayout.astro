@@ -35,7 +35,7 @@ const {
     <header class={headerClass}>
     </header>
     <main class={'tw-grow ' + mainClass}>
-        <h1 class:list={[h1Class,{'tw-hidden':!showH1}]}>{title}</h1>
+        <h1 class:list={[h1Class,{'tw-w-0 tw-h-0':!showH1}]}>{title}</h1>
         <slot/>
     </main>
     <footer class={footerClass}>
