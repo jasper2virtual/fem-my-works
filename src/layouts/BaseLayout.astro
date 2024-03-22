@@ -8,7 +8,7 @@ interface Props {
     layoutClass?: string,
     headerClass?: string,
     footerClass?: string,
-    showH1?: boolean,
+    hideH1?: boolean,
     h1Class?: string
 }
 const {
@@ -19,7 +19,7 @@ const {
     layoutClass,
     headerClass,
     footerClass,
-    showH1 = true,
+    hideH1 = false,
     h1Class
 } = Astro.props
 ---
@@ -35,7 +35,7 @@ const {
     <header class={headerClass}>
     </header>
     <main class={'tw-grow ' + mainClass}>
-        <h1 class:list={[h1Class,{'tw-w-0 tw-h-0':!showH1}]}>{title}</h1>
+        <h1 class:list={[h1Class,{'tw-w-0 tw-h-0':hideH1}]}>{title}</h1>
         <slot/>
     </main>
     <footer class={footerClass}>
