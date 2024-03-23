@@ -1,0 +1,25 @@
+---
+import avatar from './_starter-files/assets/images/avatar-jessica.jpeg'
+import {Image} from 'astro:assets'
+---
+<div class="tw-bg-dark-grey tw-rounded-2xl tw-p-6 tw-max-w-[320px]">
+
+    <div class="tw-flex tw-flex-col tw-items-center">
+        <Image src={avatar} alt="avatar" class="tw-rounded-full tw-w-1/3"/>
+        <h2 class="tw-text-white tw-text-2xl tw-mt-6">Jessica Randall</h2>
+        <p class="tw-text-green tw-test-sm tw-mt-2">London, United Kingdom</p>
+        <p class="tw-text-white tw-text-sm tw-mt-6">"Front-end developer and avid reader."</p></div>
+
+    <div class="tw-flex tw-flex-col tw-gap-4 tw-mt-4">
+        {
+            ['GitHub',
+                'Frontend Mentor',
+                'LinkedIn',
+                'Twitter',
+                'Instagram'].map((item) => (
+                    <a href="#" class="tw-text-white tw-bg-grey tw-p-4 tw-rounded-xl tw-text-center hover:tw-text-off-black hover:tw-bg-green tw-transition-colors tw-duration-500">{item}</a>
+            ))
+
+        }
+    </div>
+</div>
