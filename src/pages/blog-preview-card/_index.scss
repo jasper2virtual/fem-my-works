@@ -1,0 +1,12 @@
+@config './_tailwind.config.mjs';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+@layer base {
+  html {
+    font-family: "Figtree", system-ui, sans-serif;
+  }
+}

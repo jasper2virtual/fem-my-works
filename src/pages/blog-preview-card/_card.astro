@@ -1,0 +1,24 @@
+---
+import article from './_starter-files/assets/images/illustration-article.svg'
+import avatar from './_starter-files/assets/images/image-avatar.webp'
+import {Image} from 'astro:assets'
+---
+<div class="tw-group/card tw-bg-white tw-rounded-2xl tw-border tw-transition-all hover:tw-shadow-[1rem_1rem_black] tw-shadow-[.5rem_.5rem_black] tw-shadow-2xl tw-p-4 tw-max-w-[320px]">
+    <Image src={article} alt="article" class="tw-rounded-2xl"/>
+    <div class="tw-mt-4">
+
+        <p class="tw-bg-yellow tw-w-fit tw-px-3 tw-py-1 tw-rounded tw-font-bold tw-text-xs">Learning</p>
+
+        <p class="tw-mt-4 tw-text-xs">Published 21 Dec 2023</p>
+        <h2 class="group-hover/card:tw-text-yellow tw-mt-4 tw-font-bold tw-text-xl">HTML & CSS foundations</h2>
+
+        <p class="tw-text-grey tw-text-xs tw-mt-4">
+            These languages are the backbone of every website, defining structure, content, and presentation.
+        </p>
+
+        <p class="tw-mt-4 tw-flex">
+            <Image src={avatar} alt="avatar" class="tw-w-8 tw-h-8 tw-rounded-full tw-mr-2"/>
+        <span class="tw-font-bold">Greg Hooper<p>
+        </p>
+    </div>
+</div>
