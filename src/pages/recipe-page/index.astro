@@ -1,0 +1,14 @@
+---
+const title='Recipe Page'
+import './_index.scss'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Card from './_card.astro'
+---
+<BaseLayout title={title}
+            hideH1={true}
+            layoutClass="tw-bg-eggshell tw-font-outfit tw-max-w-screen-desktop tw-min-w-[320px] tw-px-0 mobile:tw-px-6"
+            mainClass="tw-grid tw-place-content-center"
+            challengeUrl="https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm"
+            repoUrl="https://github.com/jasper2virtual/fem-my-works/tree/main/src/pages/recipe-page">
+    <Card />
+</BaseLayout>

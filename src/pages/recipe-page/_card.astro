@@ -1,0 +1,112 @@
+---
+import omelette from './_starter-files/assets/images/image-omelette.jpeg'
+import {Image} from 'astro:assets'
+---
+<div class="tw-bg-white tw-rounded-2xl tw-max-w-[740px] tw-text-wenge-brown">
+    <Image src={omelette} alt="omelette" class="tw-rounded-2xl mobile:tw-p-8"/>
+    <div class="tw-p-8">
+        <h2 class="tw-font-bold tw-font-young-serif tw-text-4xl tw-mt-6 tw-text-dark-charcoal">Simple Omelette
+            Recipe</h2>
+
+        <p class="tw-mt-6"> An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs
+            cooked
+            to perfection, optionally filled with your choice of cheese, vegetables, or meats.</p>
+
+        <div class="tw-bg-rose-white tw-mt-6 tw-py-6 tw-px-8 tw-rounded-2xl">
+            <h3 class="tw-font-bold tw-text-dark-raspberry">Preparation time</h3>
+            <ul class="tw-list-disc tw-ml-4 marker:tw-text-dark-raspberry">
+                {
+                    ['Total', 'Approximately 10 minutes',
+                        'Preparation', '5 minutes',
+                        'Cooking', '5 minutes'].reduce((acc, curr, index, arr) => {
+                        if (index % 2 === 0) {
+                            acc.push(
+                                    <li class="tw-mt-4 tw-pl-4"><span class="tw-font-bold  tw-text-dark-charcoal">{curr}
+                                        : </span>{arr[index + 1]}</li>)
+                        }
+                        return acc
+                    }, [])
+                }
+            </ul>
+        </div>
+        <h3 class="tw-font-young-serif tw-font-bold tw-text-2xl tw-text-nutmeg tw-mt-8">Ingredients</h3>
+
+        <ul class="tw-list-disc tw-ml-4 marker:tw-text-nutmeg">
+            {
+                ['2-3 large eggs', 'Salt, to taste', 'Pepper, to taste', '1 tablespoon of butter or oil', 'Optional fillings: cheese, diced vegetables, cooked meats, herbs'].map((item) => {
+                    return
+                            <li class="tw-mt-4 tw-pl-4">{item}</li>
+                })
+            }
+        </ul>
+        <hr class="tw-mt-6 tw-border-light-grey">
+        <h3 class="tw-font-young-serif tw-font-bold tw-text-2xl tw-text-nutmeg tw-mt-8">Instructions</h3>
+        <ol class="tw-list-decimal marker:tw-text-nutmeg tw-ml-4">
+            {
+                ['Beat the eggs',
+                    `In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed.
+    You can add a tablespoon of water or milk for a fluffier texture.`,
+
+                    'Heat the pan',
+                    'Place a non-stick frying pan over medium heat and add butter or oil.',
+
+                    'Cook the omelette',
+                    `Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure
+    the eggs evenly coat the surface.`,
+
+                    'Add fillings (optional)',
+                    `When the eggs begin to set at the edges but are still slightly runny in the
+    middle, sprinkle your chosen fillings over one half of the omelette.`,
+
+                    'Fold and serve',
+                    `As the omelette continues to cook, carefully lift one edge and fold it over the
+    fillings. Let it cook for another minute, then slide it onto a plate.`,
+
+                    'Enjoy',
+                    'Serve hot, with additional salt and pepper if needed.']
+                    .reduce((acc, curr, index, arr) => {
+                        if (index % 2 === 0) {
+                            acc.push(
+                                    <li class="tw-pl-4 tw-mt-4"><span class="tw-font-bold">{curr}
+                                        : </span>{arr[index + 1]}</li>)
+                        }
+                        return acc
+                    }, [])
+            }
+        </ol>
+        <hr class="tw-mt-6 tw-border-light-grey">
+        <h3 class="tw-font-young-serif tw-font-bold tw-text-2xl tw-text-nutmeg tw-mt-8">Nutrition</h3>
+
+        <table class="tw-caption-top tw-w-full tw-mt-6">
+            <caption class="tw-text-left">The table below shows nutritional values per serving without the additional
+                fillings.
+            </caption>
+            <tbody class="tw-text-left">
+            {
+                [
+                    'Calories',
+                    '277kcal',
+
+                    'Carbs',
+                    '0g',
+
+                    'Protein',
+                    '20g',
+
+                    'Fat',
+                    '22g'
+                ].reduce((acc, curr, index, arr) => {
+                    if (index % 2 === 0) {
+                        acc.push(
+                                <tr class={index > 0 && 'tw-border-t tw-border-light-grey'}>
+                                    <th class="tw-pl-8 tw-py-4">{curr}</th>
+                                    <td class="tw-text-nutmeg tw-py-4">{arr[index + 1]}</td>
+                                </tr>)
+                    }
+                    return acc
+                }, [])
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
