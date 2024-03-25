@@ -1,0 +1,19 @@
+@config './_tailwind.config.mjs';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@layer base {
+  html {
+    font-size:14px;
+  }
+  p{
+    @apply tw-mb-4
+  }
+  h2{
+    @apply tw-mb-4
+  }
+}

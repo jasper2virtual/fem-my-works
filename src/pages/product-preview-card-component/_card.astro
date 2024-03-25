@@ -1,0 +1,39 @@
+---
+import cart from './_starter-files/images/icon-cart.svg'
+import productDesktop from './_starter-files/images/image-product-desktop.jpg'
+import productMobile from './_starter-files/images/image-product-mobile.jpg'
+import {Image} from 'astro:assets'
+---
+<style define:vars={{cart: `url("${cart.src}")`}}>
+    .btn::before {
+        content: var(--cart);
+    }
+</style>
+<article class="tw-bg-white tw-rounded-2xl tw-max-w-[320px]  desktop:tw-max-w-[640px] tw-overflow-hidden tw-font-[Montserrat] tw-flex
+tw-flex-col desktop:tw-flex-row
+">
+
+    <figure class="desktop:tw-flex-1">
+        <Image src={productMobile} alt="product" class="tw-block desktop:tw-hidden"/>
+        <Image src={productDesktop} alt="product" class="tw-hidden desktop:tw-block tw-max-w-[320px]"/>
+    </figure>
+    <div class="tw-p-6 desktop:tw-flex-1">
+        <p class="tw-text-dark-grayish-blue tw-mt-4 tw-uppercase tw-tracking-[.5em] tw-font-bold tw-text-sm">Perfume</p>
+
+        <h2 class="tw-text-very-dark-blue tw-font-[Fraunces] tw-text-4xl tw-font-bold">Gabrielle Essence Eau De
+            Parfum</h2>
+
+        <p class="tw-text-dark-grayish-blue"> A floral, solar and voluptuous interpretation composed by Olivier Polge,
+            Perfumer-Creator for the House of CHANEL.</p>
+        <p class="tw-flex tw-items-center">
+            <span class="tw-font-[Fraunces] tw-text-4xl tw-font-bold tw-text-dark-cyan">$149.99</span>
+            <span class="tw-text-dark-grayish-blue tw-line-through tw-ml-4">$169.99</span>
+        </p>
+        <button class="before:tw-mr-4 tw-rounded-xl tw-py-4 tw-w-full tw-flex tw-justify-center
+    tw-bg-dark-cyan
+     hover:tw-bg-very-dark-blue
+     focus:tw-bg-very-dark-blue
+     tw-text-white btn">Add to Cart
+        </button>
+    </div>
+</article>

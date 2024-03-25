@@ -17,7 +17,10 @@ import {Image} from 'astro:assets'
                 'LinkedIn',
                 'Twitter',
                 'Instagram'].map((item) => (
-                    <a href="#" class="tw-text-white tw-bg-grey tw-p-4 tw-rounded-xl tw-text-center hover:tw-text-off-black hover:tw-bg-green tw-transition-colors tw-duration-500">{item}</a>
+                    <a href="#" class="tw-text-white tw-bg-grey tw-p-4 tw-rounded-xl tw-text-center
+                    hover:tw-text-off-black hover:tw-bg-green
+                    focus:tw-text-off-black focus:tw-bg-green
+                     tw-transition-colors tw-duration-500">{item}</a>
             ))
 
         }
