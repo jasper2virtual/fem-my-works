@@ -13,11 +13,11 @@ import {Image} from 'astro:assets'
 tw-flex-col desktop:tw-flex-row
 ">
 
-    <figure class="desktop:tw-flex-1">
+    <figure class="desktop:tw-basis-1/2">
         <Image src={productMobile} alt="product" class="tw-block desktop:tw-hidden"/>
-        <Image src={productDesktop} alt="product" class="tw-hidden desktop:tw-block tw-max-w-[320px]"/>
+        <Image src={productDesktop} alt="product" class="tw-hidden desktop:tw-block"/>
     </figure>
-    <div class="tw-p-6 desktop:tw-flex-1">
+    <div class="tw-p-6 desktop:tw-basis-1/2">
         <p class="tw-text-dark-grayish-blue tw-mt-4 tw-uppercase tw-tracking-[.5em] tw-font-bold tw-text-sm">Perfume</p>
 
         <h2 class="tw-text-very-dark-blue tw-font-[Fraunces] tw-text-4xl tw-font-bold">Gabrielle Essence Eau De
