@@ -31,11 +31,11 @@ const {
     <title>Frontend Mentor | {title}</title>
 </head>
 <body>
-<div class={'tw-flex tw-flex-col tw-min-h-screen tw-mx-auto ' + layoutClass}>
+<div class={`tw-flex tw-flex-col tw-min-h-screen tw-mx-auto ${layoutClass}`}>
     <header class={headerClass}>
     </header>
-    <main class={'tw-grow ' + mainClass}>
-        <h1 class:list={[h1Class,{'tw-w-0 tw-h-0':hideH1}]}>{title}</h1>
+    <main class={`tw-grow ${mainClass}`}>
+        <h1 class:list={[h1Class,{'tw-h-0 tw-w-0 tw-overflow-hidden':hideH1}]}>{title}</h1>
         <slot/>
     </main>
     <footer class={footerClass}>

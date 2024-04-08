@@ -1,0 +1,17 @@
+---
+import {Image} from 'astro:assets'
+interface Props {
+    card: {
+        title: string;
+        description: string;
+        image: string;
+        color: string;
+    }
+}
+const props = Astro.props
+---
+<div class:list={`tw-rounded-2xl tw-shadow-xl tw-p-8 tw-bg-gradient-to-b tw-from-${props.card.color}  tw-from-[5px] tw-to-[5px] tw-max-w-md tw-w-full tw-flex tw-flex-col tw-h-[260px]`}>
+    <h3 class="tw-text-2xl">{props.card.title}</h3>
+    <p class="tw-my-5 tw-text-grayish-blue tw-leading-8">{props.card.description}</p>
+    <Image class="tw-self-end tw-mt-auto" src={props.card.image} alt={props.card.title}/>
+</div>

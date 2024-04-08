@@ -1,0 +1,34 @@
+---
+const title = 'Four card feature section'
+import './_index.scss'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import {getEntry} from 'astro:content'
+const myEntry = await getEntry('four-card-feature-section', 'cards')
+const cards = myEntry.data.cards
+import Card from './_card.astro'
+---
+<BaseLayout title={title}
+            hideH1={true}
+            layoutClass="tw-bg-very-light-gray tw-max-w-screen-desktop tw-min-w-[320px] tw-px-6"
+            mainClass="tw-grid tw-place-content-center"
+            challengeUrl="https://www.frontendmentor.io/challenges/four-card-feature-section-weK1eFYK"
+            repoUrl="https://github.com/jasper2virtual/fem-my-works/tree/main/src/pages/four-card-feature-section">
+    <div class="tw-flex tw-flex-col">
+        <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
+            <p class="tw-text-grayish-blue tw-text-4xl tw-font-thin">Reliable, efficient delivery</p>
+            <p class="tw-text-very-dark-blue tw-text-4xl tw-mt-4">Powered by Technology</p>
+
+            <p class="tw-text-grayish-blue tw-max-w-xl tw-mt-6"> Our Artificial Intelligence powered tools use millions
+                of
+                project data points
+                to ensure that your project is successful</p>
+        </div>
+        <div class="tw-mt-6 tw-grid tw-gap-8 tw-place-items-center tw-grid-cols-1 desktop:tw-grid-cols-3 desktop:tw-rows-2 desktop:tw-grid-flow-col">
+            {cards.map((card, index) => (
+                    <div class:list=`${(index == 0 || index == 3) && 'desktop:tw-row-span-2'}`>
+                        <Card key={index} card={card}/>
+                    </div>
+            ))}
+        </div>
+    </div>
+</BaseLayout>
