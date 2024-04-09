@@ -23,9 +23,14 @@ import Card from './_card.astro'
                 project data points
                 to ensure that your project is successful</p>
         </div>
-        <div class="tw-mt-6 tw-grid tw-gap-8 tw-place-items-center tw-grid-cols-1 desktop:tw-grid-cols-3 desktop:tw-rows-2 desktop:tw-grid-flow-col">
+        <div class="tw-flex desktop:tw-hidden tw-mt-6 tw-flex-wrap tw-gap-8 tw-place-content-center">
             {cards.map((card, index) => (
-                    <div class:list=`${(index == 0 || index == 3) && 'desktop:tw-row-span-2'}`>
+                        <Card key={index} card={card}/>
+            ))}
+        </div>
+        <div class="tw-hidden desktop:tw-grid tw-mt-6 tw-gap-8 tw-place-items-center tw-grid-cols-3 tw-rows-2 tw-grid-flow-col">
+            {cards.map((card, index) => (
+                    <div class:list=`${(index == 0 || index == 3) && 'tw-row-span-2'}`>
                         <Card key={index} card={card}/>
                     </div>
             ))}
