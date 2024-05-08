@@ -1,11 +1,14 @@
 ---
 const title = 'Four card feature section'
+import type { ImageMetadata } from 'astro';
+import Card from './_card.astro'
 import './_index.scss'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import {getEntry} from 'astro:content'
-const myEntry = await getEntry('four-card-feature-section', 'cards')
-const cards = myEntry.data.cards
-import Card from './_card.astro'
+import cards from './_cards.yaml'
+const images = import.meta.glob<{ default: ImageMetadata }>('./_starter-files/images/*.svg');
+cards.forEach( (card) => {
+    card.imageSrc=images[`./_starter-files/images/${card.image}`]
+})
 ---
 <BaseLayout title={title}
             hideH1={true}
@@ -24,14 +27,14 @@ import Card from './_card.astro'
                 to ensure that your project is successful</p>
         </div>
         <div class="tw-flex desktop:tw-hidden tw-mt-6 tw-flex-wrap tw-gap-8 tw-place-content-center">
-            {cards.map((card, index) => (
-                        <Card key={index} card={card}/>
+            {cards.map(({title, description,imageSrc,color}, index) => (
+                        <Card title={title} description={description} imageSrc={imageSrc} color={color} />
             ))}
         </div>
         <div class="tw-hidden desktop:tw-grid tw-mt-6 tw-gap-8 tw-place-items-center tw-grid-cols-3 tw-rows-2 tw-grid-flow-col">
-            {cards.map((card, index) => (
+            {cards.map(({title, description,imageSrc,color}, index) => (
                     <div class:list=`${(index == 0 || index == 3) && 'tw-row-span-2'}`>
-                        <Card key={index} card={card}/>
+                        <Card title={title} description={description} imageSrc={imageSrc} color={color} />
                     </div>
             ))}
         </div>

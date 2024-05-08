@@ -1,0 +1,60 @@
+---
+import {type ImageMetadata} from "astro";
+const title = 'Testimonials grid section'
+import './_index.scss'
+import BaseLayout from '@layouts/BaseLayout.astro'
+interface Card {
+    bgColor: string;
+    textTheme: string;
+    bgImage: string;
+    avatar: string;
+    fullName: string;
+    membership: string;
+    lead: string;
+    quote: string;
+}
+import cardsData from './_cards.yaml'
+const cards: Card[] = Object.values(cardsData)
+import {type Props as CardProps, default as Card} from './_card.astro'
+const images = import.meta.glob<{ default: ImageMetadata }>('./_starter-files/images/*')
+const cardsProps: CardProps[] =
+    cards.map(({
+                   bgColor, textTheme, bgImage, avatar, fullName,
+                   membership, lead, quote
+               }) => {
+        const bgImageSrc: Function = bgImage && images[`./_starter-files/images/${bgImage}`]
+        const avatarSrc: Function = images[`./_starter-files/images/${avatar}`]
+        const result: any = {
+            bgColor,
+            textTheme,
+            bgImageSrc,
+            avatarSrc,
+            fullName,
+            membership,
+            lead,
+            quote
+        }
+        return result
+    })
+---
+<BaseLayout title={title}
+            hideH1={true}
+            layoutClass="tw-bg-very-light-gray tw-max-w-screen-desktop tw-min-w-[320px] tw-px-6"
+            mainClass="tw-grid tw-place-content-center"
+            challengeUrl="https://www.frontendmentor.io/challenges/testimonials-grid-section-Nnw6J7Un7"
+            repoUrl="https://github.com/jasper2virtual/fem-my-works/tree/main/src/pages/testimonials-grid-section">
+
+    <div class="tw-flex tw-flex-wrap tw-gap-8 desktop:tw-mx-32">
+        <div class="tw-flex tw-flex-wrap tw-gap-8 desktop:tw-flex-[3_3_0%]">
+            <div class="tw-flex tw-flex-wrap tw-gap-8">
+                <Card classes="tw-flex-[2_2_0%]" {...cardsProps[0]}/>
+                <Card classes="tw-flex-1" {...cardsProps[1]}/>
+            </div>
+            <div class="tw-flex tw-flex-wrap tw-gap-8">
+                <Card classes="tw-flex-1" {...cardsProps[2]}/>
+                <Card classes="tw-flex-[2_2_0%]" {...cardsProps[3]}/>
+            </div>
+        </div>
+        <Card classes="desktop:tw-flex-1" {...cardsProps[4]}/>
+    </div>
+</BaseLayout>

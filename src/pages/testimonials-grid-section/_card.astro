@@ -1,0 +1,48 @@
+---
+import {Image} from 'astro:assets'
+export interface Props {
+    bgColor:string;
+    textTheme:string;
+    bgImageSrc?:Function;
+    avatarSrc:Function;
+    fullName:string;
+    membership:string;
+    lead:string;
+    quote:string;
+    classes?:string;
+}
+const props = Astro.props
+const bgImage=props.bgImageSrc && (await props.bgImageSrc()).default.src
+const avatarSrc=(await props.avatarSrc()).default.src
+---
+<div class:list={[
+    'tw-min-w-[300px]',
+    `tw-bg-${props.bgColor}`,
+    'tw-bg-no-repeat tw-bg-[right_10%_top_1rem]',
+    'tw-p-8 tw-rounded-lg tw-shadow-2xl',
+    props.classes
+]}
+style={bgImage && `background-image:url(${bgImage})`}
+>
+    <div class="tw-grid tw-grid-cols-[auto_1fr] tw-grid-rows-2 tw-gap-x-2">
+        <div style={`background-image:url(${avatarSrc})`} class="tw-w-[56px] tw-aspect-square tw-rounded-full tw-row-span-2"></div>
+        <div class:list={["tw-self-end tw-font-bold",
+            {"tw-text-white":props.textTheme=="light"},
+            {"tw-text-very-dark-blackish-blue":props.textTheme=="dark"}
+        ]}>{props.fullName}</div>
+        <div class:list={["tw-self-start",
+            {"tw-text-light-grayish-blue":props.textTheme=="light"},
+            {"tw-text-very-dark-grayish-blue":props.textTheme=="dark"}
+            ]}>{props.membership}</div>
+    </div>
+    <div class="tw-mt-4">
+        <p class:list={["tw-text-lg tw-font-bold",
+            {"tw-text-white":props.textTheme=="light"},
+            {"tw-text-very-dark-blackish-blue":props.textTheme=="dark"}
+        ]}>{props.lead}</p>
+        <p class:list={["tw-text-sm tw-mt-2",
+            {"tw-text-light-grayish-blue":props.textTheme=="light"},
+            {"tw-text-very-dark-grayish-blue":props.textTheme=="dark"}
+            ]}>{props.quote}</p>
+    </div>
+</div>
